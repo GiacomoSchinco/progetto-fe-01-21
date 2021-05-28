@@ -11,6 +11,11 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'Corporate Mundo';
   constructor(public UtentiService:UtentiService, public guard:GuardService, private router:Router){}
+  navbarCollapsed = true;
+
+  toggleNavbarCollapsing() {
+    this.navbarCollapsed = !this.navbarCollapsed;
+}
 
   logoOut(){
     this.UtentiService.isLogged=false
