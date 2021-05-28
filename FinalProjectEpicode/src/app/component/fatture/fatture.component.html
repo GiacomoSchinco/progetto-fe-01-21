@@ -1,0 +1,37 @@
+<div class="container bg-white mt-5 pt-3">
+    <ng-container *ngIf="FattureService.arrayFatture">
+        <ngb-pagination [(page)]="page" [pageSize]="pageSize"
+            [collectionSize]="FattureService.arrayFatture.totalPages*10" [maxSize]="7" [rotate]="true"
+            [boundaryLinks]="true" (pageChange)="reloadFatture(page)">
+        </ngb-pagination>
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">Cliente</th>
+                    <th scope="col">Data</th>
+                    <th scope="col">Importo</th>
+                    <th scope="col">Stato Pagamento</th>
+                    <th scope="col"></th>
+                    <th scope="col"><button type="button" class="btn btn-primary" routerLink="/fatture/new">Nuova
+                            Fattura</button></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let fattura of FattureService.arrayFatture.content">
+                    <ng-container *ngIf=" fattura.id != 6 && fattura.id != 8 && fattura.id != 10 && fattura.id != 18">
+                        <th scope="row">{{fattura.id}}</th>
+                        <td>{{fattura.cliente.ragioneSociale}}</td>
+                        <td>{{fattura.data |date :'d/M/yyyy'}}</td>
+                        <td>{{fattura.importo | currency:'EUR'}}</td>
+                        <td>{{fattura.stato.nome}}</td>
+                        <td><button type="button" class="btn btn-outline-success"
+                                routerLink="/fatture/edit/{{fattura.id}}">Modifica</button></td>
+                        <td><button type="button" class="btn btn-outline-danger"
+                                (click)="FattureService.deleteFattura(fattura)">Elimina</button></td>
+                    </ng-container>
+                </tr>
+            </tbody>
+        </table>
+    </ng-container>
+</div>

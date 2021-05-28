@@ -1,0 +1,142 @@
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Nuovo Cliente</h5>
+                <div class="container">
+                    <div class="row">
+                        <div class="mb-3 col-12">
+                            <hr>
+                            <h6>Dati Cliente</h6>
+                        </div>
+                        <div class="mb-3 col-2">
+                            <label class="form-label">Id</label>
+                            <input type="number" [(ngModel)]="newCliente.id" disabled required class="form-control">
+                        </div>
+                        <div class="mb-3 col-4">
+                            <label class="form-label">Ragione Sociale</label>
+                            <input type="text" [(ngModel)]="newCliente.ragioneSociale" class="form-control">
+                        </div>
+                        <div class="mb-3 col-2">
+                            <label class="form-label">Tipo Cliente</label>
+                            <select class="custom-select" [(ngModel)]="newCliente.tipoCliente">
+                                    <option value="SRL" selected>SRL</option>
+                                    <option value="SPA">SPA</option>
+                                    <option value="SAS">SAS</option>
+                                    <option value="PA">PA</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 col-4">
+                            <label class="form-label">Partita Iva</label>
+                            <input type="text" [(ngModel)]="newCliente.partitaIva" class="form-control">
+                        </div>
+                        <div class="mb-3 col-4">
+                            <label class="form-label">Telefono</label>
+                            <input type="text" [(ngModel)]="newCliente.telefono" class="form-control">
+                        </div>
+                        <div class="mb-3 col-4">
+                            <label class="form-label">Email</label>
+                            <input type="text" [(ngModel)]="newCliente.email" class="form-control">
+                        </div>
+                        <div class="mb-3 col-4">
+                            <label class="form-label">Pec</label>
+                            <input type="text" [(ngModel)]="newCliente.pec" class="form-control">
+                        </div>
+                        <div class="mb-3 col-2">
+                            <label class="form-label">Nome Contatto</label>
+                            <input type="text" [(ngModel)]="newCliente.nomeContatto" class="form-control">
+                        </div>
+                        <div class="mb-3 col-2">
+                            <label class="form-label">Cognome Contatto</label>
+                            <input type="text" [(ngModel)]="newCliente.cognomeContatto" class="form-control">
+                        </div>
+                        <div class="mb-3 col-4">
+                            <label class="form-label">Email Contatto</label>
+                            <input type="text" [(ngModel)]="newCliente.emailContatto" class="form-control">
+                        </div>
+                        <div class="mb-3 col-4">
+                            <label class="form-label">Telefono Contatto</label>
+                            <input type="text" [(ngModel)]="newCliente.telefonoContatto" class="form-control">
+                        </div>
+                        <div class="mb-3 col-12">
+                            <hr>
+                            <h6>Sede Legale</h6>
+                        </div>
+                        <div class="mb-3 col-1">
+                            <label class="form-label">Id</label>
+                            <input type="number" [(ngModel)]="newCliente.indirizzoSedeLegale.id" class="form-control">
+                        </div>
+                        <div class="mb-3 col-4">
+                            <label class="form-label">Via</label>
+                            <input type="text" [(ngModel)]="newCliente.indirizzoSedeLegale.via" class="form-control">
+                        </div>
+                        <div class="mb-3 col-2">
+                            <label class="form-label">Civico</label>
+                            <input type="text" [(ngModel)]="newCliente.indirizzoSedeLegale.civico" required
+                                class="form-control">
+                        </div>
+                        <div class="mb-3 col-3">
+                            <label class="form-label">Località</label>
+                            <input type="text" [(ngModel)]="newCliente.indirizzoSedeLegale.localita" required
+                                class="form-control">
+                        </div>
+                        <div class="mb-3 col-2">
+                            <label class="form-label">Cap</label>
+                            <input type="text" [(ngModel)]="newCliente.indirizzoSedeLegale.cap" class="form-control">
+                        </div>
+                        <div class="mb-3 col-12">
+                            <select class="custom-select" [(ngModel)]="newCliente.indirizzoSedeLegale.comune.id">
+                                <ng-container *ngFor="let comune of ComuniService.arrayComuni.content">
+                                    <option value="{{comune.id}}">{{comune.nome}}</option>
+                                </ng-container>
+                            </select>
+                        </div>
+                        <div class="mb-3 col-12">
+                            <hr>
+                            <h6>Sede Operativa</h6>
+                        </div>
+                        <div class="mb-3 col-1">
+                            <label class="form-label">Id</label>
+                            <input type="number" [(ngModel)]="newCliente.indirizzoSedeOperativa.id"
+                                class="form-control">
+                        </div>
+                        <div class="mb-3 col-4">
+                            <label class="form-label">Via</label>
+                            <input type="text" [(ngModel)]="newCliente.indirizzoSedeOperativa.via" class="form-control">
+                        </div>
+                        <div class="mb-3 col-2">
+                            <label class="form-label">Civico</label>
+                            <input type="text" [(ngModel)]="newCliente.indirizzoSedeOperativa.civico"
+                                class="form-control">
+                        </div>
+                        <div class="mb-3 col-3">
+                            <label class="form-label">Località</label>
+                            <input type="text" [(ngModel)]="newCliente.indirizzoSedeOperativa.localita"
+                                class="form-control">
+                        </div>
+                        <div class="mb-3 col-2">
+                            <label class="form-label">Cap</label>
+                            <input type="text" [(ngModel)]="newCliente.indirizzoSedeOperativa.cap" class="form-control">
+                        </div>
+                        <div class="mb-3 col-12">
+                            <select class="custom-select" [(ngModel)]="newCliente.indirizzoSedeOperativa.comune.id">
+                                <ng-container *ngFor="let comune of ComuniService.arrayComuni.content">
+                                    <option value="{{comune.id}}">{{comune.nome}}</option>
+                                </ng-container>
+                            </select>
+                        </div>
+                        <div class="mb-3 col-6">
+                            <label class="form-label">Data inserimento</label>
+                            <input type="date" [(ngModel)]="newCliente.dataInserimento" class="form-control">
+                        </div>
+                        <div class="mb-3 col-6">
+                            <label class="form-label">Data Ultimo Contatto</label>
+                            <input type="date" [(ngModel)]="newCliente.dataUltimoContatto" class="form-control">
+                        </div>
+                        <div class="mb-3 col-12">
+                            <button type="button" class="btn btn-outline-success"(click)="postCliente()" routerLink="/clienti" >Salva</button>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
