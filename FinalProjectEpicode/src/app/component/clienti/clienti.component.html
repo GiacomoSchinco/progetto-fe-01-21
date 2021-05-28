@@ -1,0 +1,46 @@
+<div class="container bg-white mt-5 pt-3">
+    <ng-container *ngIf="ClientiService.arrayClienti">
+        <div class="row justify-content-between">
+            <div class="col-4">
+                <ngb-pagination [(page)]="page" [pageSize]="pageSize"
+                    [collectionSize]="ClientiService.arrayClienti.totalPages*10" [maxSize]="7" [rotate]="true"
+                    [boundaryLinks]="true" (pageChange)="reloadClienti(page)">
+                </ngb-pagination>
+            </div>
+            <div class="col-4 form-inline" >
+                    <input class="form-control mr-sm-2" type="search" placeholder="Cerca Cliente" aria-label="Search" [(ngModel)]="ClientiService.inputCliente">
+                    <button class="btn btn-outline-success my-2 my-sm-0" (click)="ClientiService.searchCliente()" routerLink="search">Cerca</button>
+            </div>
+        </div>
+
+
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Ragione Sociale</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Partita Iva</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"><button type="button" class="btn btn-primary" routerLink="new">Nuovo
+                            Cliente</button></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let cliente of ClientiService.arrayClienti.content">
+                    <th scope="row">{{cliente.id}}</th>
+                    <td>{{cliente.ragioneSociale}}</td>
+                    <td>{{cliente.email}}</td>
+                    <td>{{cliente.partitaIva}}</td>
+                    <td><button type="button" class="btn btn-outline-primary"
+                            routerLink="/fatture/cliente/{{cliente.id}}">Fatture</button></td>
+                    <td><button type="button" class="btn btn-outline-success"
+                            routerLink="/clienti/edit/{{cliente.id}}">Modifica</button></td>
+                    <td><button type="button" class="btn btn-outline-danger"
+                            (click)="ClientiService.deleteCliente(cliente)">Cancella</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </ng-container>
+</div>

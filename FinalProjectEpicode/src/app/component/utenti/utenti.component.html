@@ -1,0 +1,24 @@
+<div class="container bg-white mt-5 pt-3">
+    <ng-container *ngIf="utentiService.arrayUtenti">
+    <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="utentiService.arrayUtenti.content.length">
+        </ngb-pagination>
+    <table class="table table-striped" >
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Username</th>
+                <th scope="col">Email</th>
+                <th scope="col">Ruolo</th>
+            </tr>
+        </thead>
+        <tbody *ngIf="utentiService.arrayUtenti">
+            <tr *ngFor="let utente of utentiService.arrayUtenti.content | slice: (page-1) * pageSize : page * pageSize">
+                <th>{{utente.id}}</th>
+                <td>{{utente.username}}</td>
+                <td>{{utente.email}}</td>
+                <td>{{utente.roles[0].roleName}}</td>
+            </tr>
+        </tbody>
+    </table>
+</ng-container>
+</div>

@@ -1,0 +1,74 @@
+<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+  <a class="navbar-brand" routerLink=''>{{title}}</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a routerLink='login' routerLinkActive="active" class="nav-link">Login</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink='signup' routerLinkActive="active" class="nav-link">SignUp</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink='utenti' routerLinkActive="active" class="nav-link">Utenti</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink='clienti' routerLinkActive="active" class="nav-link">Clienti</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink='fatture' routerLinkActive="active" class="nav-link">Fatture</a>
+      </li>
+    </ul>
+    <ng-container *ngIf="UtentiService.isLogged==true">
+      <button class="btn btn-outline-primary my-2 my-sm-0" (click)="logoOut()">Log Out</button>
+    </ng-container>
+  </div>
+</nav>
+<router-outlet></router-outlet>
+<footer class="bg-dark text-white mt-5">
+  <div class="footer-top">
+    <div class="container mt-3 pt-5">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 footer-contact">
+          <h3>Corporate Mundo</h3>
+          <p>
+            A108 Adam Street <br>
+            New York, NY 535022<br>
+            United States <br><br>
+            <strong>Phone:</strong> +1 5589 55488 55<br>
+            <strong>Email:</strong> info@example.com<br>
+          </p>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <h4>Link Utili</h4>
+          <ul>
+            <li><i class=""></i> <a href="https://epicode.it/" target="_blank">Epicode School</a></li>
+            <li><i class=""></i> <a href="https://angular.io/" target="_blank">Angular</a></li>
+            <li><i class=""></i> <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a></li>
+            <li><i class=""></i> <a href="https://www.w3schools.com" target="_blank">3WSchool</a></li>
+            <li><i class=""></i> <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Il Segreto del successo</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <h4>Altri Servizi</h4>
+          <ul>
+            <li><i class=""></i> <a routerLink="">Corporate Mundo!</a></li>
+            <li><i class=""></i> <a routerLink="">Corporate Mundo!</a></li>
+            <li><i class=""></i> <a routerLink="">Corporate Mundo!</a></li>
+            <li><i class=""></i> <a routerLink="">Corporate Mundo!</a></li>
+            <li><i class=""></i> <a routerLink="">Corporate Mundo!</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container d-md-flex py-4">
+    <div class="mr-md-auto text-center text-md-left">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Epicode School</span></strong>. All Rights Reserved. Designed by Giacomo Schinco
+      </div>
+    </div>
+  </div>
+</footer>

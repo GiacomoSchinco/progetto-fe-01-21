@@ -1,0 +1,136 @@
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Modifica Cliente</h5>
+            <ng-container ngIf*='ClientiService.editCliente'>
+                <div class="container">
+                    <div class="row">
+                        <div class="mb-3 col-12">
+                            <hr>
+                            <h6>Dati Cliente</h6>
+                        </div>
+                        <div class="mb-3 col-2">
+                            <label class="form-label">Id</label>
+                            <input type="number" [(ngModel)]="ClientiService.editCliente.id" disabled class="form-control">
+                        </div>
+                        <div class="mb-3 col-3">
+                            <label class="form-label">Ragione Sociale</label>
+                            <input type="text" [(ngModel)]="ClientiService.editCliente.ragioneSociale" class="form-control">
+                        </div>
+                        <div class="mb-3 col-3">
+                            <label class="form-label">Tipo Cliente</label>
+                            <select class="custom-select" [(ngModel)]="ClientiService.editCliente.tipoCliente">
+                                <option value="SRL" selected>SRL</option>
+                                <option value="SPA">SPA</option>
+                                <option value="SAS">SAS</option>
+                                <option value="PA">PA</option>
+                        </select>
+                        </div>
+                        <div class="mb-3 col-4">
+                            <label class="form-label">Partita Iva</label>
+                            <input type="text" [(ngModel)]="ClientiService.editCliente.partitaIva" class="form-control">
+                        </div>
+                        <div class="mb-3 col-4">
+                            <label class="form-label">Telefono</label>
+                            <input type="text" [(ngModel)]="ClientiService.editCliente.telefono" class="form-control">
+                        </div>
+                        <div class="mb-3 col-4">
+                            <label class="form-label">Email</label>
+                            <input type="text" [(ngModel)]="ClientiService.editCliente.email" class="form-control">
+                        </div>
+                        <div class="mb-3 col-4">
+                            <label class="form-label">Pec</label>
+                            <input type="text" [(ngModel)]="ClientiService.editCliente.pec" class="form-control">
+                        </div>
+                        <div class="mb-3 col-2">
+                            <label class="form-label">Nome Contatto</label>
+                            <input type="text" [(ngModel)]="ClientiService.editCliente.nomeContatto" class="form-control">
+                        </div>
+                        <div class="mb-3 col-2">
+                            <label class="form-label">Cognome Contatto</label>
+                            <input type="text" [(ngModel)]="ClientiService.editCliente.cognomeContatto" class="form-control">
+                        </div>
+                        <div class="mb-3 col-4">
+                            <label class="form-label">Email Contatto</label>
+                            <input type="text" [(ngModel)]="ClientiService.editCliente.emailContatto" class="form-control">
+                        </div>
+                        <div class="mb-3 col-4">
+                            <label class="form-label">Telefono Contatto</label>
+                            <input type="text" [(ngModel)]="ClientiService.editCliente.telefonoContatto" class="form-control">
+                        </div>
+                        <div class="mb-3 col-12">
+                            <hr>
+                            <h6>Sede Legale</h6>
+                        </div>
+                        <div class="mb-3 col-1">
+                            <label class="form-label">Id</label>
+                            <input type="number" [(ngModel)]="ClientiService.editCliente.indirizzoSedeLegale.id" class="form-control">
+                        </div>
+                        <div class="mb-3 col-5">
+                            <label class="form-label">Via</label>
+                            <input type="text" [(ngModel)]="ClientiService.editCliente.indirizzoSedeLegale.via" class="form-control">
+                        </div>
+                        <div class="mb-3 col-2">
+                            <label class="form-label">Civico</label>
+                            <input type="text" [(ngModel)]="ClientiService.editCliente.indirizzoSedeLegale.civico" class="form-control">
+                        </div>
+                        <div class="mb-3 col-4">
+                            <label class="form-label">Località</label>
+                            <input type="text" [(ngModel)]="ClientiService.editCliente.indirizzoSedeLegale.localita"
+                                class="form-control">
+                        </div>
+                        <div class="mb-3 col-12">
+                            <select class="custom-select" [(ngModel)]="ClientiService.editCliente.indirizzoSedeLegale.comune.id">
+                                <ng-container *ngFor="let comune of ComuniService.arrayComuni.content">
+                                    <option value="{{comune.id}}">{{comune.nome}}</option>
+                                </ng-container>
+                            </select>
+                        </div>
+                        <div class="mb-3 col-12">
+                            <hr>
+                            <h6>Sede Operativa</h6>
+                        </div>
+                        <div class="mb-3 col-1">
+                            <label class="form-label">Id</label>
+                            <input type="number" [(ngModel)]="ClientiService.editCliente.indirizzoSedeOperativa.id" class="form-control">
+                        </div>
+                        <div class="mb-3 col-5">
+                            <label class="form-label">Via</label>
+                            <input type="text" [(ngModel)]="ClientiService.editCliente.indirizzoSedeOperativa.via" class="form-control">
+                        </div>
+                        <div class="mb-3 col-2">
+                            <label class="form-label">Civico</label>
+                            <input type="text" [(ngModel)]="ClientiService.editCliente.indirizzoSedeOperativa.civico"
+                                class="form-control">
+                        </div>
+                        <div class="mb-3 col-4">
+                            <label class="form-label">Località</label>
+                            <input type="text" [(ngModel)]="ClientiService.editCliente.indirizzoSedeOperativa.localita"
+                                class="form-control">
+                        </div>
+                        <div class="mb-3 col-12">
+                            <select class="custom-select" [(ngModel)]="ClientiService.editCliente.indirizzoSedeOperativa.comune.id">
+                                <ng-container *ngFor="let comune of ComuniService.arrayComuni.content">
+                                    <option value='{{comune.id}}'>{{comune.nome}}</option>
+                                </ng-container>
+                            </select>
+                        </div>
+                        <div class="mb-3 col-6">
+                            <label class="form-label">Data inserimento</label>
+                            <input type="text" [(ngModel)]="ClientiService.editCliente.dataInserimento" class="form-control">
+                        </div>
+                        <div class="mb-3 col-6">
+                            <label class="form-label">Data Ultimo Contatto</label>
+                            <input type="text" [(ngModel)]="ClientiService.editCliente.dataUltimoContatto" class="form-control">
+                        </div>
+                        
+                        <div class="mb-3 col-12">
+                            <button type="button" (click)="putCliente()" routerLink="/clienti" class="btn btn-outline-success">Salva</button>
+            
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>

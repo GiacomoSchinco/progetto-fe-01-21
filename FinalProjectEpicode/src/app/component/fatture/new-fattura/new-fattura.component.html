@@ -1,0 +1,43 @@
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Aggiungi Fattura</h5>
+            <ng-container ngIf*='editFattura'>
+                <div class="row">
+                    <div class="mb-3 col-1">
+                        <label class="form-label">Id</label>
+                        <input type="text" [(ngModel)]="id" disabled class="form-control">
+                    </div>
+                    <div class="mb-3 col-1">
+                        <label class="form-label">Numero</label>
+                        <input type="text" [(ngModel)]="numero" disabled class="form-control">
+                    </div>
+                    <div class="mb-3 col-1">
+                        <label class="form-label">Anno</label>
+                        <input type="text" disabled [(ngModel)]="anno" class="form-control">
+                    </div>
+                    <div class="mb-3 col-9">
+                        <label class="form-label">Id Cliente</label>
+                        <input type="text" [(ngModel)]="cliente" class="form-control">
+                    </div>
+                    <div class="mb-3 col-12">
+                        <label class="form-label">Data</label>
+                        <input type="datetime-local" [(ngModel)]="data" class="form-control">
+                    </div>
+                    <div class="mb-3 col-6">
+                        <label class="form-label">Importo</label>
+                        <input type="number" [(ngModel)]="importo" class="form-control">
+                    </div>
+                    <div class="mb-3 col-6">
+                        <label class="form-label">Stato Pagamento</label>
+                        <select class="form-control" [(ngModel)]="statoNome">
+                            <option value="PAGATA" selected>Pagata</option>
+                            <option value="NON PAGATA">Non Pagata</option>
+                        </select>
+                    </div>
+                    <div class="mb-3 col-12"><button class="btn btn-outline-primary" (click)="postFattura()" routerLink="/fatture">Salva</button><button class="btn btn-outline-success" routerLink="/fatture" >Indietro</button></div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>
